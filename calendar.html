@@ -3,32 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Calendar</title>
     <style>
+        
 
         .container ul
         {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
-            grid-gap: 10px;
+            grid-gap: 5px;
         }
         .container li{
             list-style: none;
-            font-size: 30px;
+            font-size: 40px;
+            font-weight: 700;
             height: 110px;
             background-color: lightslategray;
             display: flex;
             justify-content: center;
             align-items: center;
         }
+        #other-month
+        {
+            background-color: lightyellow;
+        }
+
+        .dateContainer
+        {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            margin-left: 15px;
+        }
+        .dateContainer .box
+        {
+            font-size: 30px;
+            font-weight: 900;
+            display: flex;
+            justify-content: space-around;
+            
+
+        }
 
 
     </style>
 </head>
 <body>
-    
+
+        <div class="dateContainer">
+            <div class="box">Saturday</div>
+            <div class="box">Sunday</div>
+            <div class="box">Monday</div>
+            <div class="box">Tuesday</div>
+            <div class="box">wednesday</div>
+            <div class="box">Thursday</div>
+            <div class="box">Friday</div>
+        </div>
+
+
         <div class="container">
                 <ul>
+                    <li id="other-month">30</li>
+                    <li id="other-month">31</li>
                     <li>1</li>
                     <li>2</li>
                     <li>3</li>
@@ -59,11 +94,10 @@
                     <li>28</li>
                     <li>29</li>
                     <li>30</li>
-                    <li>31</li>
-                    <li>32</li>
-                    <li>33</li>
-                    <li>34</li>
-                    <li>35</li>
+                    <li id="other-month">1</li>
+                    <li id="other-month">2</li>
+                    <li id="other-month">3</li>
+                    
                 </ul>
 
 
