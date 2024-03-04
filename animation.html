@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       @keyframes anim {
+            0%{
+                margin-left: 0;
+                margin-top: 0;
+            
+
+            }
+            50%
+            {
+                margin-top: 100px;
+                margin-left: 400px;
+                background-color: red;
+
+            }
+            100%
+            {   
+                margin-top: 0;
+                margin-left: 900px;
+                background-color: yellow;
+
+            }
+            
+      }
+        .stage
+        {
+            height: 200px;
+            width: 1000px;
+            background-color: skyblue;
+            
+        }
+        .stage:hover .ball{
+            animation: anim 5s ease infinite ;
+
+        }
+        .ball
+        {
+            height: 100px;
+            width: 100px;
+            background-color: yellow;
+            border-radius: 50%;
+            position: absolute;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="stage">
+
+        <div class="ball">
+
+        </div>
+    </div>
+
+</body>
+</html>
