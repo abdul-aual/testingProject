@@ -12,7 +12,7 @@
         .card{
      width: 20%;
      display: inline-block;
-     box-shadow: 2px 2px 20px black;
+     box-shadow:2px 2px 20px black;
      border-radius: 5px; 
      margin: 2%;
      
@@ -22,6 +22,8 @@
   width: 100%;
   
     }
+    .second-div{margin:2%}
+    .inner-div{display: inline-block; margin:3%;border: 1px solid gray;border-radius: 5px; width: 40%;}
 
   .title{
  
@@ -30,7 +32,9 @@
  
  
 }
-.button{ padding: 5px 15px; background-color: white; color: black; margin-bottom: 5px;border-radius: 5px;cursor: pointer; }
+.button{ padding: 5px 15px; 
+    background-color: white; color: black; margin-bottom: 5px;
+    border-radius: 5px;cursor: pointer;}
 .button:hover{background-color:black; color: white;}
 .button:active{box-shadow:0 0 10px black ;}
 
@@ -46,6 +50,20 @@ h1{
        border-bottom-right-radius: 5px;
  border-bottom-left-radius: 5px;
  
+}
+.go-somewhere
+{
+    background-color: #00B7Eb; color: white;
+    padding: 7px 15px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+.go-somewhere:hover{background-color: #4666FF; }
+.inner-div
+{
+    text-align: center;
 }
     </style>
 </head>
@@ -81,6 +99,26 @@ h1{
             <button class="button">Hire Me</button>
             </div>
 
+
+        </div>
+        <div class="second-div">
+
+            <div class="inner-div">
+                <h1>Special title treatment</h1>
+                <p >With supporting text below as a natural lead-in to additional content.</p>
+                
+                    <button  class="go-somewhere">Go Somewhere</button>
+                
+
+            </div>
+            <div class="inner-div">
+                <h1>Special title treatment</h1>
+                <p >With supporting text below as a natural lead-in to additional content.</p>
+                
+                    <button  class="go-somewhere">Go Somewhere</button>
+                
+
+            </div>
 
         </div>
 
