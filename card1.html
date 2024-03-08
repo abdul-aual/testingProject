@@ -16,6 +16,7 @@
      border-radius: 5px; 
      margin: 2%;
      
+     
 
     }
     .image img{
@@ -29,6 +30,7 @@
  
  text-align: center;
  padding: 10px;
+ 
  
  
 }
@@ -59,15 +61,77 @@ h1{
     border-radius: 5px;
     margin-bottom: 10px;
     cursor: pointer;
+    font-weight: 700;
 }
 .go-somewhere:hover{background-color: #4666FF; }
+.go-somewhere:active{box-shadow: 0 0 15px blue;}
 .inner-div
 {
     text-align: center;
 }
+.navbar {
+    
+    position:fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    background-color: #333; 
+    padding: 10px 20px;
+    box-sizing: border-box;
+    z-index: 1000; 
+    height: 50px;
+    font-size: 20px;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px; 
+}
+
+.content {
+    margin-top: 60px; 
+    padding: 20px;
+    box-sizing: border-box;
+}
+#search{
+    width: 10%;
+    height: 25px;
+    border:1px solid gray;
+    background-color: white;
+    border-radius: 3px;
+
+}
+.button-srch
+{
+    cursor: pointer;
+    height: 25px;
+    width: 5%;
+    margin-left: 10px;
+    border-radius: 3px;
+}
+.button-srch:hover{background-color:skyblue; color:white;}
+
     </style>
 </head>
 <body>
+    
+    <div class="navbar">
+        <a  href="card1.html">Home</a>
+        <a target="_blank" href="form.html">About</a>
+        <a href="#">Contact</a>
+        <input id="search" placeholder="search" type="search">
+        <button class="button-srch">search</button>
+    </div>
+    <div class="content">
+        <!-- Content of your website goes here -->
+    </div>
+
+
+
     
     <div class="main">
 
