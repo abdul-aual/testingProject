@@ -1,0 +1,79 @@
+body{
+    font-family: 'Playfair Display', serif;
+    
+    
+    text-align: justify;
+    margin:0px;
+    
+}
+h1{
+    font-size:55px;
+    font-family: 'Hachi Maru Pop', cursive;
+}
+p{
+    font-size: 20px;
+}
+img
+{
+    width: 100%;
+}
+.topper
+{
+    background-image: url(images/top-banner.png);
+    height: 500px;
+    background-repeat: no-repeat;
+}
+
+.half-width
+{
+    float: left;
+    
+    width: 40%;
+    margin-left: 5%;
+    padding-left: 2%;
+    
+}
+.NonDecorateLink
+{
+    text-decoration: none;
+}
+.hireMe
+{
+    text-decoration: none;
+    background-image: linear-gradient(45deg, red, gold);
+    font-weight: 700;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 10px;
+}
+.middle
+{
+    background-image: url(images/dream-bg.png);
+    background-repeat: no-repeat;
+    height: 600px;
+    background-position: right;
+}
+p{
+    text-align: justify;
+}
+.half-experience
+{
+    float: left;
+    width: 40%;
+    margin-left: 5%;
+    padding-left: 3%;
+    height: 250px;
+    box-shadow: 10px 10px 20px gray;
+    border-radius: 5px;
+    border-left: 7px solid;
+
+}
+.one {
+    border-image: linear-gradient(180deg, lightsalmon, tomato);
+    border-image-slice: 1;
+}
+.two
+{
+    border-image: linear-gradient(180deg,blue,cyan);
+    border-image-slice: 10;
+}
