@@ -1,0 +1,14 @@
+.container{margin-bottom: 50px;}
+.orange-bg{background-color: #fceae8;border-radius: 10px;}
+.price{color:#FF136F; font-size: 30px; font-weight: bold;}
+.btn{color: white; background-color: #FF136F; padding: 8px 30px;}
+.row{padding: 20px 40px;}
+.cat1{background-color: orange;}
+.cat2{background-color: #da70d6;}
+.cat3{background-color:blue;}
+.cat1, .cat2, .cat3 {border-radius: 10px;}
+.catagories h1 {color: white;}
+.catagories img {width: 100px;}
+.card-box{box-shadow: 10px 10px 20px gray; border-radius: 10px;}
+.foot-btn{background-color:white; border-top: none; justify-content: center;}
+.div-link a:hover{text-decoration: none;}

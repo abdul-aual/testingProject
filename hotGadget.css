@@ -1,0 +1,17 @@
+.container{margin-bottom: 50px;}
+.cars{
+background-image: url(images/hot-gadgets/bg-1.png);
+background-repeat: no-repeat;
+}
+.btn{background-color: black; color: white; padding: 7px 20px; border-radius: 5px;}
+.hlw{text-align: center;}
+.pale-img img{width: 100%;height: 100%;}
+.beauty
+{
+    height: 55%;
+    margin-bottom: 15%;
+    box-shadow: 15px 15px 40px gray;
+    border-radius: 10px;
+    
+}
+.beauty img{height: 100%;width: 100%;}
