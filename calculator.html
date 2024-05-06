@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="calculator.css">
+</head>
+<body>
+    <div class="container">
+        <div class="calculator">
+            <!-- <input type="text" placeholder="0" id="outputscreen" > -->
+
+            <input type="text" placeholder="0" id="outputscreen" >
+            
+
+            <button onclick="clear()" id="clear-btn" >CL</button>
+            <button onclick="del()" >DEL</button>
+            <button onclick="display('%')" >%</button>
+            <button onclick="display('/')" >/</button>
+            <button onclick="display('7')" >7</button>
+            <button onclick="display('8')" >8</button>
+            <button onclick="display('9')" >9</button>
+            <button onclick="display('*')" >*</button>
+            <button onclick="display('4')" >4</button>
+            <button onclick="display('5')" >5</button>
+            <button onclick="display('6')" >6</button>
+            <button onclick="display('-')" >-</button>
+            <button onclick="display('1')" >1</button>
+            <button onclick="display('2')" >2</button>
+            <button onclick="display('3')" >3</button>
+            <button onclick="display('+')" >+</button>
+            <button onclick="display('.')" >.</button>
+            <button onclick="display('0')" >0</button>
+            <button onclick="calculate()" class="equal" >=</button>
+            
+        </div>
+    </div>
+<script>
+// Function to display the numbers and operators on the output screen
+function display(value) {
+    // Check if the output screen is displaying '0', replace it with the new value
+    if (document.getElementById('outputscreen').value === '0') {
+        document.getElementById('outputscreen').value = value;
+    } else {
+        document.getElementById('outputscreen').value += value;
+    }
+}
+
+// Function to clear the output screen and reset to 0
+function clearScreen() {
+    document.getElementById('outputscreen').value = '0';
+}
+
+// Function to delete the last character from the output screen
+function del() {
+    var value = document.getElementById('outputscreen').value;
+    document.getElementById('outputscreen').value = value.slice(0, -1);
+}
+
+// Function to perform the calculation
+function calculate() {
+    var expression = document.getElementById('outputscreen').value;
+    var result = eval(expression); // Note: Using eval() can be unsafe, consider using a safer method for evaluation
+    document.getElementById('outputscreen').value = result;
+}
+
+// Change cursor to pointer on hover for all buttons
+document.querySelectorAll('.calculator button').forEach(button => {
+    button.style.cursor = 'pointer';
+});
+
+//change cursor pointer on hover for all buttons
+
+// Add event listener to the CL button to clear the output screen
+document.getElementById('clear-btn').addEventListener('click', function() {
+    clearScreen();
+});
+
+
+</script>
+</body>
+</html>
