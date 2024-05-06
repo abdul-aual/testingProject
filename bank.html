@@ -1,0 +1,219 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        body{padding:100px}
+        .submit-area{
+            border-radius: 10px;
+            box-shadow: 5px 5px 10px gray;
+            padding: 40px;
+            margin-top: 50px;
+        }
+        .transaction-area{display: none;}
+        .deposit{background-color: slateblue;}
+        .withdraw{background-color: lightsalmon;}
+        .balance{background-color: orange;}
+        .status{border-radius: 10px; padding: 20px; margin:10px 20px; color:white;}
+        .deposit-error-border, .withdraw-error-border{
+            border:1px solid red !important;
+            box-shadow: none !important;
+        }
+    </style>
+</head>
+<body>
+    <div id="login-area">
+        <h1 class="text-center"> Welcome to pioneer Bank </h1>
+        <div class="submit-area">
+            <h4>Login </h4>
+            <input type="text" placeholder="Email" class="form-control">
+            <br>
+            <input type="password" placeholder="password" class="form-control">
+            <br>
+            <button id="enter" class="btn btn-success">Enter </button>
+        </div>
+    </div>
+    <div id="transaction-area" class="transaction-area">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="deposit status">
+                    <h5>Deposit</h5>
+                    <h2>$<span id="currentDeposit">00</span></h2>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="withdraw status">
+                    <h5>Withdraw</h5>
+                    <h2>$<span id="current-withdraw">00</span></h2>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="balance status">
+                    <h5>Balance</h5>
+                    <h2>$<span id="currentBalance">1240</span></h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="submit-area">
+                    <h4>Deposit</h4>
+                    <input id="depositInput" type="text" placeholder="$ amount you want to deposit" class="form-control">
+                    <small id="depositError" class="text-danger"></small> 
+                    <br>
+                    <button id="addDeposit" class="btn btn-success">Deposit</button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="submit-area">
+                    <h4>Withdraw</h4>
+                    <input id="withdraw-input" type="text" placeholder="$ amount you want to withdraw" class="form-control">
+                    <small id="withdrawError" class="text-danger"></small> <br>
+                    <button id="withdraw-btn" class="btn btn-success">Withdraw</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('enter').addEventListener('click', function() {
+            const loginArea = document.getElementById('login-area');
+            loginArea.style.display = 'none';
+
+            const transactionArea = document.getElementById('transaction-area');
+            transactionArea.style.display = 'block';
+        });
+
+        document.getElementById('depositInput').addEventListener('keypress', function() {
+            if (event.key === 'Enter') {
+                //event.preventDefault(); //prevent form submission
+                const depositInputCall = document.getElementById('depositInput');
+                const depositInputValue = depositInputCall.value;
+                const amountByDeposit = parseFloat(depositInputValue);
+
+                if (!isNaN(amountByDeposit) && depositInputValue !== '') {
+                    document.getElementById('depositError').innerText = '';
+                    depositInputCall.classList.remove('deposit-error-border');
+                    const currentDepositAmount = parseFloat(document.getElementById('currentDeposit').innerText)
+                    const totalDeposit = currentDepositAmount + amountByDeposit;
+                    document.getElementById('currentDeposit').innerText = totalDeposit;
+                    //added by later
+                    const currentBalanceCall = document.getElementById('currentBalance');
+                    const currentBalanceValue = currentBalanceCall.innerText;
+                    const currentBalanceAmount = parseFloat(currentBalanceValue);
+
+                    const TotalBalance = currentBalanceAmount + amountByDeposit;
+                    document.getElementById('currentBalance').innerText = TotalBalance;
+
+
+                    depositInputCall.value = '';
+                } else {
+                    document.getElementById('depositError').innerText = 'Enter a valid amount';
+                    depositInputCall.classList.add('deposit-error-border');
+                }
+            }
+        });
+
+        document.getElementById('addDeposit').addEventListener('click', function() {
+            const depositInputCall = document.getElementById('depositInput');
+            const depositInputValue = depositInputCall.value;
+            const amountByDeposit = parseFloat(depositInputValue);
+
+            if (!isNaN(amountByDeposit) && depositInputValue !== '') {
+                document.getElementById('depositError').innerText = '';
+                depositInputCall.classList.remove('deposit-error-border');
+
+                const currentDepositAmount = parseFloat(document.getElementById('currentDeposit').innerText)
+                const totalDeposit = currentDepositAmount + amountByDeposit;
+                document.getElementById('currentDeposit').innerText = totalDeposit;
+                
+                const currentBalanceCall = document.getElementById('currentBalance');
+                    const currentBalanceValue = currentBalanceCall.innerText;
+                    const currentBalanceAmount = parseFloat(currentBalanceValue);
+
+                    const TotalBalance = currentBalanceAmount + amountByDeposit;
+                    document.getElementById('currentBalance').innerText = TotalBalance;
+
+
+                depositInputCall.value = '';
+            } else {
+                document.getElementById('depositError').innerText = 'Enter a valid amount';
+                depositInputCall.classList.add('deposit-error-border');
+            }
+        });
+        
+        document.getElementById('withdraw-input').addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+        event.preventDefault();
+        const withdrawInputCall = document.getElementById('withdraw-input');
+        const withdrawInputValue = withdrawInputCall.value;
+        const withdrawInputAmount = parseFloat(withdrawInputValue);
+        
+        if (!isNaN(withdrawInputAmount) && withdrawInputValue !== '') {
+            document.getElementById('withdrawError').innerText = '';
+            withdrawInputCall.classList.remove('withdraw-error-border');
+            
+            const currentWithdrawAmount = parseFloat(document.getElementById('current-withdraw').innerText);
+            const totalWithdrawAmount = currentWithdrawAmount + withdrawInputAmount;
+            document.getElementById('current-withdraw').innerText = totalWithdrawAmount;
+
+            const currentBalanceCall = document.getElementById('currentBalance');
+            const currentBalanceValue = currentBalanceCall.innerText;
+            const currentBalanceAmount = parseFloat(currentBalanceValue);
+
+            const totalBalance = currentBalanceAmount - withdrawInputAmount;
+            document.getElementById('currentBalance').innerText = totalBalance;
+
+            withdrawInputCall.value = '';
+        } else {
+            document.getElementById('withdrawError').innerText = 'Enter a valid amount';
+            withdrawInputCall.classList.add('withdraw-error-border');
+        }
+    }
+});
+
+document.getElementById('withdraw-btn').addEventListener('click', function(){
+
+
+    const withdrawInputCall = document.getElementById('withdraw-input');
+        const withdrawInputValue = withdrawInputCall.value;
+        const withdrawInputAmount = parseFloat(withdrawInputValue);
+        
+        if (!isNaN(withdrawInputAmount) && withdrawInputValue !== '') {
+            document.getElementById('withdrawError').innerText = '';
+            withdrawInputCall.classList.remove('withdraw-error-border');
+            
+            const currentWithdrawAmount = parseFloat(document.getElementById('current-withdraw').innerText);
+            const totalWithdrawAmount = currentWithdrawAmount + withdrawInputAmount;
+            document.getElementById('current-withdraw').innerText = totalWithdrawAmount;
+
+            const currentBalanceCall = document.getElementById('currentBalance');
+            const currentBalanceValue = currentBalanceCall.innerText;
+            const currentBalanceAmount = parseFloat(currentBalanceValue);
+
+            const totalBalance = currentBalanceAmount - withdrawInputAmount;
+            document.getElementById('currentBalance').innerText = totalBalance;
+
+            withdrawInputCall.value = '';
+        } else {
+            document.getElementById('withdrawError').innerText = 'Enter a valid amount';
+            withdrawInputCall.classList.add('withdraw-error-border');
+        }
+
+
+})
+
+
+
+
+
+
+
+        
+    </script>
+</body>
+</html>
