@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator Clone</title>
+</head>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: sans-serif;
+        background-color: #ecf0f3;
+
+    }
+    .container
+    {
+        display: flex;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+    }
+    .calculator
+    {
+        display: grid;
+        grid-template-columns: repeat(4,68px);
+        padding: 25px;
+        border-radius: 30px;
+        box-shadow: inset 5px 5px 12px #ffffff,
+        5px 5px 12px rgba(0,0,0,.16);
+        background-color: #ecf0f3;
+        
+    }
+    input{
+        grid-column: span 4;
+        height: 70px;
+        width: 260px;
+        border-radius: 30px;
+        color: rgb(70,70,70);
+        border: none;
+        box-shadow: inset -5px -5px 5px #ffffff,
+        inset 5px 5px 5px rgba(0,0,0,.16);
+        
+    margin-top: 40px;
+    margin-bottom: 30px;
+    padding: 20px;
+    font-size: 50px;
+    }
+    button
+    {
+        height: 48px;
+        width: 48px;
+        border: none;
+        border-radius: 50%;
+        box-shadow: -5px -5px 12px #ffffff,
+         5px 5px 12px rgba(0,0,0,.16);
+        margin: 8px;
+        font-size: 16px;
+        background-color: #ecf0f3;
+        cursor: pointer;
+    }
+    #output-screen
+    {
+        text-align: right;
+        
+        outline: none;
+    }
+    .equal
+    {
+        width: 115px;
+        border-radius: 30px;
+    }
+
+</style>
+<body>
+
+    <div class="container">
+        <div class="calculator">
+            <input type="text"  id="output-screen" placeholder="0" >
+            
+                <button onclick="clearScreen()" >CL</button>
+                <button onclick="del()" >DEL</button>
+                <button onclick="display('%')" >%</button>
+                <button onclick="display('/')" >/</button>
+                <button onclick="display('7')" >7</button>
+                <button onclick="display('8')" >8</button>
+                <button onclick="display('9')" >9</button>
+                <button onclick="display('*')" >*</button>
+                <button onclick="display('4')" >4</button>
+                <button onclick="display('5')" >5</button>
+                <button onclick="display('6')" >6</button>
+                <button onclick="display('-')" >-</button>
+                <button onclick="display('1')" >1</button>
+                <button onclick="display('2')" >2</button>
+                <button onclick="display('3')" >3</button>
+                <button onclick="display('+')" >+</button>
+                <button onclick="display('.')" >.</button>
+                <button onclick="display('0')" >0</button>
+                <button onclick="calculate()" class="equal">=</button>
+        </div>
+    </div>
+
+    <script>
+        function clearScreen(){
+            document.getElementById('output-screen').value = '0';
+        }
+        function del(){
+            let value = document.getElementById('output-screen').value;
+            document.getElementById('output-screen').value = value.slice(0,-1);
+        }
+        function display(ak)
+        {
+            let screenValue = document.getElementById('output-screen');
+            if(screenValue.value === '0' )
+            {
+                screenValue.value = ak;
+
+            }else{
+                screenValue.value +=ak;
+
+            }
+        }
+        function calculate()
+        {
+            let expres = document.getElementById('output-screen').value;
+
+            let result = eval(expres);
+            document.getElementById('output-screen').value = result;
+        }
+
+    </script>
+    
+</body>
+</html>

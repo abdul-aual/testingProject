@@ -14,7 +14,7 @@
             <input type="text" placeholder="0" id="outputscreen" >
             
 
-            <button onclick="clear()" id="clear-btn" >CL</button>
+            <button onclick="hakau()">CL</button>
             <button onclick="del()" >DEL</button>
             <button onclick="display('%')" >%</button>
             <button onclick="display('/')" >/</button>
@@ -48,8 +48,9 @@ function display(value) {
 }
 
 // Function to clear the output screen and reset to 0
-function clearScreen() {
+function hakau() {
     document.getElementById('outputscreen').value = '0';
+   
 }
 
 // Function to delete the last character from the output screen
@@ -65,17 +66,11 @@ function calculate() {
     document.getElementById('outputscreen').value = result;
 }
 
-// Change cursor to pointer on hover for all buttons
-document.querySelectorAll('.calculator button').forEach(button => {
-    button.style.cursor = 'pointer';
-});
 
-//change cursor pointer on hover for all buttons
 
-// Add event listener to the CL button to clear the output screen
-document.getElementById('clear-btn').addEventListener('click', function() {
-    clearScreen();
-});
+
+
+
 
 
 </script>
