@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Isse track: </title>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <h1>Issue Tracker</h1>
+        <div class="jumbotron">
+            <h3>Add new Issue</h3>
+            <form id="issueInputForm">
+                <div class="form-group">
+                    <label for="issueDescription">Description</label>
+                    <input type="text" class="form-control" placeholder="Describe your issue" name="" id="issueDescription">
+                </div>
+                <div class="form-group">
+                    <label for="issueSeverity">Severity</label>
+                    <select name="" class="form-control" id="issueSeverity">
+                        <option value="Low">Low</option>
+                        <option value="Medium">Medium</option>
+                        <option value="High">High</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="issueAssignedTo">Assigned To</label>
+                    <input type="text" name="" id="issueAssignedTo" class="form-control">
+
+                </div>
+                <button type="submit" class="btn btn-primary">Add</button>
+
+            </form>
+        </div>
+        <div class="col-lg-12">
+            <div id="issuesList">
+            </div>
+          </div>
+    </div>
+    <script src="isse-json.js"></script>
+</body>
+</html>
